@@ -119,13 +119,15 @@ export function startStream(
         return;
       }
       if (!res.ok) throw new Error(String(res.status));
+      pollDelay = Math.max(250, pollDelay - 50);
       const json = await res.json();
       const slot = Number(json.data.header.message.slot);
       const root = String(json.data.root);
       const key = `${slot}:${root}`;
       if (key === lastKey) return;
+      const isFirst = lastKey === "";
       lastKey = key;
-      const rec = makeRecord(slot, root, source);
+      const rec = isFirst ? null : makeRecord(slot, root, source);
       cb.onStatus("live", source);
       if (rec) cb.onRecord(rec);
     } catch {
