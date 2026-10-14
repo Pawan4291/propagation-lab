@@ -49,7 +49,7 @@ export function StabilityTest({ latencyThreshold }: { latencyThreshold: number }
   const med = values.length ? [...values].sort((a, b) => a - b)[Math.floor(values.length / 2)] : null;
   const jit = stdev(values);
   const worst = values.length ? Math.max(...values) : null;
-  const steadiness = values.length ? (values.filter((v) => v <= latencyThreshold).length / values.length) * 100 : null;
+  const steadiness = values.length && med !== null ? (values.filter((v) => v <= med * 1.5).length / values.length) * 100 : null;
 
   function finalizeBest() {
     if (steadiness === null || med === null) return;
@@ -98,7 +98,7 @@ export function StabilityTest({ latencyThreshold }: { latencyThreshold: number }
         <Stat label="Median RTT" value={med !== null ? `${med.toFixed(0)} ms` : "—"} />
         <Stat label="Jitter" value={jit !== null ? `${jit.toFixed(0)} ms` : "—"} />
         <Stat label="Worst spike" value={worst !== null ? `${worst.toFixed(0)} ms` : "—"} />
-        <Stat label="Steadiness" value={steadiness !== null ? `${steadiness.toFixed(0)}%` : "—"} />
+        <Stat label="Steadiness (pings within 1.5× your median)" value={steadiness !== null ? `${steadiness.toFixed(0)}%` : "—"} />
       </div>
       {best && (
         <p className="mt-3 text-xs text-[var(--color-graphite)] font-mono-num">

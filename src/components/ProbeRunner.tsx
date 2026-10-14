@@ -21,7 +21,7 @@ export function ProbeRunner({
   full?: boolean;
   onComplete: (r: ProbeResult) => void;
 }) {
-  const { network, status, reconnects, window: records } = useStream();
+  const { network, window: records } = useStream();
   const [running, setRunning] = useState(false);
   const [step, setStep] = useState("");
   const [result, setResult] = useState<ProbeResult | null>(null);
@@ -59,8 +59,8 @@ export function ProbeRunner({
         r.speedUnreachable = true;
       }
       setStep("Checking stream stability…");
-      const uptimeOk = status === "live";
-      r.stabilityPct = Math.max(0, 100 - reconnects * 8) * (uptimeOk ? 1 : 0.6);
+      const slotsSpan = records.length > 1 ? records[records.length - 1].slot - records[0].slot + 1 : 0;
+      r.stabilityPct = slotsSpan > 0 ? Math.min(100, (records.length / slotsSpan) * 100) : undefined;
       r.connection = getConnectionInfo();
       if (r.speedUnreachable) {
         setErrorNote("Speed endpoints unreachable from your network — showing latency + stability only.");

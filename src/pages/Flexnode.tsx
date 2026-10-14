@@ -6,7 +6,7 @@ import { StabilityTest } from "../components/StabilityTest";
 import { ShareCard } from "../components/ShareCard";
 import { useStream } from "../hooks/useStream";
 import { NETWORKS } from "../lib/networks";
-import { percentile, stdev } from "../lib/stats";
+import { percentile } from "../lib/stats";
 
 interface Run {
   time: string;
@@ -40,7 +40,7 @@ export function Flexnode() {
   const p50 = percentile(delays, 50);
   const p95 = percentile(delays, 95);
   const spread = p50 !== null && p95 !== null ? p95 - p50 : null;
-  const ownJitter = stdev(delays.slice(-20));
+
 
   const passed = [
     measured.latencyMs !== undefined && measured.latencyMs <= thresholds.latencyMs,
@@ -103,7 +103,7 @@ export function Flexnode() {
             <Stat label="Chain p50" value={p50 !== null ? `${Math.round(p50)} ms` : "—"} />
             <Stat label="Chain p95" value={p95 !== null ? `${Math.round(p95)} ms` : "—"} />
             <Stat label="Chain spread" value={spread !== null ? `${Math.round(spread)} ms` : "—"} />
-            <Stat label="Your median RTT / jitter" value={measured.latencyMs !== undefined ? `${measured.latencyMs.toFixed(0)} / ${(ownJitter ?? 0).toFixed(0)} ms` : "—"} />
+            <Stat label="Your median RTT / jitter" value={measured.latencyMs !== undefined ? `${measured.latencyMs.toFixed(0)} / ${(measured.jitterMs ?? 0).toFixed(0)} ms` : "—"} />
           </div>
         )}
         <p className="mt-3 text-xs text-[var(--color-graphite)]">
