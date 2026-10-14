@@ -147,7 +147,7 @@ export function startStream(
     tick();
   }
 
-  startSSE();
+  startPolling("poll");
 
   return {
     stop() {
