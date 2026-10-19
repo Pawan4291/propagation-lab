@@ -93,9 +93,8 @@ export function Method() {
 
       <p className="mt-10 text-xs text-[var(--color-graphite)]">
         Community build, not affiliated with, endorsed by, or sponsored by Optimum. Built by{" "}
-        <strong>Pawan4291</strong> ·{" "}
-        <a className="underline" href="https://github.com/Pawan4291" target="_blank" rel="noreferrer">
-          github.com/Pawan4291
+        <a className="underline font-semibold" href="https://x.com/Pawan2001564157" target="_blank" rel="noreferrer">
+          Pawan
         </a>
         .
       </p>

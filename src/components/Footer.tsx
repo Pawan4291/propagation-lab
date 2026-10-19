@@ -13,9 +13,9 @@ export function Footer() {
           received by your browser, or a measurement your browser ran.
         </p>
         <p className="mt-4">
-          Built by <strong>Pawan4291</strong> ·{" "}
-          <a className="underline" href="https://github.com/Pawan4291" target="_blank" rel="noreferrer">
-            github.com/Pawan4291
+          Built by{" "}
+          <a className="underline font-semibold" href="https://x.com/Pawan2001564157" target="_blank" rel="noreferrer">
+            Pawan
           </a>
         </p>
         <p className="mt-2 text-xs">
