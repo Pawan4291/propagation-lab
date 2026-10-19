@@ -112,6 +112,9 @@ export function GuessGame() {
         before it arrives. Error = |guess − actual|. Points = max(0, 100 − ⌊error/20⌋), boosted by your streak
         multiplier. Arrival times are real; the scoring rule is this game's own.
       </p>
+      <p className="mt-2 text-sm font-semibold">
+        How to play: drag the slider to when you think the next block will arrive, press Lock in before it lands, and see your error and points.
+      </p>
 
       <div
         className="mt-5 cursor-grow"

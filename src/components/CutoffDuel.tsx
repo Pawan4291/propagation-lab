@@ -124,7 +124,12 @@ export function CutoffDuel() {
         </a>
         ). Here: set a cutoff (500–6000 ms). If the real block arrives at or before it you score
         round(cutoff/100) points; later scores 0 and counts as a miss. Arrival times are real; the reward rule
-        is this game's own, not real MEV economics.
+                is this game's own, not real MEV economics.
+      </p>
+      <p className="mt-2 text-sm font-semibold">
+        How to play: pick Live (play the current slot) or Replay (instant, over blocks you've captured).
+        Move the slider to set your cutoff, lock it in or press Run replay, then compare points and miss rate.
+        Tick "Accelerated what-if" to see how earlier arrivals would change your score.
       </p>
 
       <div className="mt-4 flex gap-2">
