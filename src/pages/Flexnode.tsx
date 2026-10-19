@@ -84,17 +84,20 @@ export function Flexnode() {
       </div>
 
       <h2 className="mt-12 text-2xl font-semibold">Activity 1 — Full device check</h2>
+      <p className="mt-1 text-sm text-[var(--color-graphite)]">How to use: it runs automatically. Wait ~15 s for your latency, jitter, download and upload. Edit the checklist numbers to set your own targets, then press Run again to retest.</p>
       <div className="mt-4 space-y-6">
         <ProbeRunner full onComplete={onProbeComplete} />
         <ReadinessChecklist thresholds={thresholds} setThresholds={setThresholds} measured={measured} />
       </div>
 
       <h2 className="mt-12 text-2xl font-semibold">Activity 2 — Steady Hands</h2>
+      <p className="mt-1 text-sm text-[var(--color-graphite)]">How to use: keep this page open for 60 seconds while it pings the network. The flatter your line, the steadier your connection. Press Replay to beat your best.</p>
       <div className="mt-4">
         <StabilityTest latencyThreshold={thresholds.latencyMs} />
       </div>
 
       <h2 className="mt-12 text-2xl font-semibold">Activity 3 — Compare to the chain</h2>
+      <p className="mt-1 text-sm text-[var(--color-graphite)]">How to use: open Monitor first and let it collect blocks. Then compare your jitter with how much real block arrival times vary.</p>
       <div className="card mt-4 p-5">
         {delays.length === 0 ? (
           <p className="text-sm text-[var(--color-graphite)]">Waiting for blocks…</p>
