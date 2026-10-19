@@ -23,15 +23,15 @@ export function LiveStrip() {
   }
 
   return (
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-full border border-[var(--color-line)] bg-white px-4 py-2 text-sm font-mono-num">
+    <div className="flex w-fit max-w-full flex-wrap items-center justify-center gap-x-4 gap-y-1 rounded-3xl border border-[var(--color-line)] bg-white px-5 py-2.5 text-center text-sm font-mono-num">
       <span>
         Last block: <strong>+{Math.round(last.delayMs)} ms</strong> after slot start
       </span>
-      <span className="text-[var(--color-line)]">·</span>
+
       <span>
         Median of last 50: <strong>{p50 !== null ? Math.round(p50) : "—"} ms</strong>
       </span>
-      <span className="text-[var(--color-line)]">·</span>
+
       <span>
         Blocks seen: <strong>{count}</strong>
       </span>
