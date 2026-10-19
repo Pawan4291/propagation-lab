@@ -13,12 +13,12 @@ const links = [
 export function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-line)] bg-white/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3 sm:px-6">
+      <div className="relative mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3 sm:px-6">
         <NavLink to="/" className="flex items-center gap-2 font-semibold tracking-tight">
           <img src="/favicon.png" alt="" className="h-7 w-7 rounded-full border border-[var(--color-line)]" />
           <span className="text-[15px]">Propagation Lab</span>
         </NavLink>
-        <nav className="order-3 flex w-full flex-wrap gap-1 text-sm sm:order-2 sm:ml-4 sm:w-auto">
+        <nav className="order-3 flex w-full flex-wrap justify-center gap-1 text-sm sm:order-2 sm:ml-4 sm:w-auto lg:absolute lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
           {links.map((l) => (
             <NavLink
               key={l.to}
