@@ -46,7 +46,7 @@ export function Method() {
         <ul className="mt-2 list-disc space-y-2 pl-5 text-sm">
           <li>Measured at a public node as seen from your browser — includes your connection's latency to that node.</li>
           <li>Uses your device's clock unless a clock offset was successfully measured against a trusted time source.</li>
-          <li>Fallback polling adds up to ~250 ms of quantisation versus the real-time event stream.</li>
+          <li>Block arrival is detected by polling the public beacon node about every 250 ms (PublicNode has no live event stream), so times can be off by up to ~250 ms plus network latency.</li>
           <li>
             This measures today's normal gossip path, <strong>not mump2p</strong> — Optimum's own propagation
             data isn't public.
